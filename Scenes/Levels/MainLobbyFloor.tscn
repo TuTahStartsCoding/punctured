@@ -1,0 +1,155 @@
+[gd_scene format=4 uid="uid://dei3j88yw6omf"]
+
+[ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="1_8asmv"]
+[ext_resource type="PackedScene" uid="uid://bvt7e871e6jeg" path="res://Scenes/NPC's/Enemy/Enemy.tscn" id="2_klyq0"]
+[ext_resource type="PackedScene" uid="uid://ckp2r52hlcfxn" path="res://Scenes/NPC's/Npc_OfficeWorker/npc_officeworker_scene.tscn" id="3_cxots"]
+[ext_resource type="PackedScene" uid="uid://bblpsy4fvi76f" path="res://Scenes/Interactables/Coin.tscn" id="4_lw84f"]
+[ext_resource type="PackedScene" uid="uid://cq8pbo8thdxf2" path="res://Scenes/Misc/scene_settings(lobby).tscn" id="5_i0k3d"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="6_tnka6"]
+[ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="7_ci2vi"]
+[ext_resource type="PackedScene" uid="uid://b4l1gom0wsk8p" path="res://Scenes/Interactables/area_exit.tscn" id="9_i0k3d"]
+[ext_resource type="PackedScene" uid="uid://ceoo6gamb4olk" path="res://Scenes/Interactables/Area_Blocker.tscn" id="9_k0uy3"]
+[ext_resource type="TileSet" uid="uid://b3n0bklwwny1b" path="res://Art/TileMap.tres" id="11_icaeq"]
+[ext_resource type="PackedScene" uid="uid://48vtm5vekhaq" path="res://Scenes/QuestUpdate.tscn" id="12_tij5p"]
+[ext_resource type="Script" uid="uid://sdgifyh2ndq4" path="res://Scripts/QuestGeneral/Quest.gd" id="13_2i1ty"]
+[ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="14_g6mg3"]
+[ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="15_lsu4l"]
+
+[node name="Scene_Root" type="Node2D" unique_id=777561992]
+texture_filter = 1
+
+[node name="Player" parent="." unique_id=2011047963 instance=ExtResource("1_8asmv")]
+position = Vector2(-85, -117)
+
+[node name="NPCs" type="Node" parent="." unique_id=234943041]
+
+[node name="Enemy" parent="NPCs" unique_id=235690390 instance=ExtResource("2_klyq0")]
+position = Vector2(67, 71)
+
+[node name="Enemy2" parent="NPCs" unique_id=985571059 instance=ExtResource("2_klyq0")]
+position = Vector2(-171, 71)
+
+[node name="NPC" parent="NPCs" unique_id=1166676743 instance=ExtResource("3_cxots")]
+position = Vector2(83, 260)
+
+[node name="NPC2" parent="NPCs" unique_id=1714409664 instance=ExtResource("3_cxots")]
+position = Vector2(-108, 104)
+line1 = ["Hello! Everything is fine! Nothing to see here! "]
+
+[node name="Pickups" type="Node" parent="." unique_id=211693519]
+
+[node name="Pickup4" parent="Pickups" unique_id=779500034 instance=ExtResource("4_lw84f")]
+position = Vector2(2, 74)
+amplitude = 12.0
+
+[node name="Pickup2" parent="Pickups" unique_id=598982851 instance=ExtResource("4_lw84f")]
+position = Vector2(195, 68)
+amplitude = 12.0
+
+[node name="Pickup3" parent="Pickups" unique_id=2045419434 instance=ExtResource("4_lw84f")]
+position = Vector2(-284, 218)
+amplitude = 12.0
+
+[node name="Pickup5" parent="Pickups" unique_id=1472221573 instance=ExtResource("4_lw84f")]
+position = Vector2(192, 255)
+amplitude = 12.0
+
+[node name="SceneSettings" parent="." unique_id=1463834468 instance=ExtResource("5_i0k3d")]
+
+[node name="Scene" type="Node" parent="." unique_id=1917922659]
+
+[node name="Welcome Label" type="Label" parent="Scene" unique_id=1012659538]
+texture_filter = 1
+offset_left = -53.0
+offset_top = -157.0
+offset_right = 107.0
+offset_bottom = -60.0
+text = "WASD - Move
+SPACE - Dash
+
+LMB & J - Punch
+RMB & K- Spinning kick
+*Collect coins to heal*"
+label_settings = ExtResource("6_tnka6")
+
+[node name="WindowLights2" type="Node" parent="Scene" unique_id=903036047]
+
+[node name="PointLight2D" type="PointLight2D" parent="Scene/WindowLights2" unique_id=2106264556]
+position = Vector2(-176, 8)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_ci2vi")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Scene/WindowLights2" unique_id=1623331237]
+position = Vector2(-16, 8)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_ci2vi")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Scene/WindowLights2" unique_id=1208711435]
+position = Vector2(49, 9)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_ci2vi")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Scene/WindowLights2" unique_id=383769750]
+position = Vector2(176, 10)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_ci2vi")
+
+[node name="AreaBlocker" parent="Scene" unique_id=1057994998 instance=ExtResource("9_k0uy3")]
+
+[node name="AreaBlocker2" parent="Scene" unique_id=42611938 instance=ExtResource("9_k0uy3")]
+position = Vector2(333, 168)
+
+[node name="AreaExit_Up" parent="Scene" unique_id=262324626 instance=ExtResource("9_i0k3d")]
+next_scene_path = "res://Scenes/Levels/floor02.tscn"
+heal_player = true
+
+[node name="AreaExit_Down" parent="Scene" unique_id=2136213476 instance=ExtResource("9_i0k3d")]
+position = Vector2(336, 174)
+next_scene_path = "res://Scenes/Levels/Basement01.tscn"
+heal_player = true
+
+[node name="TileMap" type="TileMapLayer" parent="Scene" unique_id=255868594]
+z_index = -1
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD//wMAAAABAAIAAAD5/wEAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wAAAAAFAAAAAAD6/wAAAAAGAAAAAAD7/wAAAAAJAAIAAAD8/wAAAAAHAAAAAAD9/wAAAAAIAAAAAAAAAAAAAAACAAAAAAD6/wEAAAACAAEAAAD7/wEAAAAGAAEAAAD8/wEAAAAGAAEAAAD9/wEAAAAGAAEAAAD6/wIAAAAGAAEAAAD7/wIAAAAGAAEAAAD8/wIAAAAGAAEAAAD9/wIAAAAGAAEAAAD+/wIAAAADAAEAAAD//wIAAAAGAAEAAAD5/wMAAAAAAAIAAAD6/wMAAAABAAIAAAD8/wMAAAABAAIAAAD9/wMAAAABAAIAAAD+/wMAAAADAAIAAAAAAAIAAAAGAAEAAAAAAAMAAAAFAAIAAAAAAAEAAAABAAEAAAABAAMAAAAJAAAAAAABAAIAAAAGAAIAAAABAAEAAAACAAEAAAACAAAAAAADAAAAAAACAAEAAAAGAAEAAAACAAIAAAAFAAEAAAACAAMAAAAFAAIAAAABAAAAAAAEAAAAAAD+/wAAAAADAAAAAAD+/wEAAAADAAEAAAD//wAAAAAEAAAAAAD//wEAAAACAAEAAAABAAcAAAABAAIAAAACAAcAAAABAAEAAAABAAQAAAAJAAEAAAABAAUAAAAJAAIAAAACAAUAAAAHAAAAAAAAAAUAAAAAAAAAAAABAAYAAAAGAAEAAAAAAAYAAAAFAAEAAAACAAYAAAABAAEAAAAAAAcAAAACAAIAAAADAAMAAAAFAAIAAAAEAAMAAAAFAAIAAAADAAIAAAAFAAEAAAADAAEAAAAGAAEAAAADAAAAAAAHAAAAAAAEAAAAAAAGAAAAAAAFAAAAAAAEAAAAAAAFAAEAAAACAAEAAAAGAAAAAAADAAAAAAAGAAEAAAADAAEAAAAGAAIAAAAIAAIAAAAGAAMAAAADAAIAAAAFAAMAAAAJAAAAAAAEAAEAAAAGAAEAAAAEAAIAAAAGAAEAAAAFAAIAAAAGAAEAAAD7/wMAAAAJAAAAAAD7/wQAAAAJAAEAAAD7/wUAAAAJAAIAAAD4/wUAAAAEAAAAAAD5/wUAAAAFAAAAAAD6/wUAAAAGAAAAAAD2/wUAAAAAAAAAAAD2/wYAAAAAAAEAAAD2/wcAAAAAAAIAAAD3/wUAAAABAAAAAAD3/wYAAAABAAEAAAD3/wcAAAABAAIAAAD4/wYAAAABAAEAAAD4/wcAAAABAAIAAAD5/wYAAAACAAEAAAD5/wcAAAACAAIAAAD6/wYAAAAGAAEAAAD6/wcAAAABAAIAAAD7/wYAAAAGAAEAAAD7/wcAAAACAAIAAAD8/wYAAAAGAAEAAAD8/wcAAAABAAIAAAD//wYAAAAGAAEAAAD+/wYAAAAGAAEAAAD9/wYAAAAGAAEAAAD//wcAAAABAAIAAAD+/wcAAAACAAIAAAD9/wcAAAABAAIAAAD+/wUAAAAHAAAAAAD//wUAAAAIAAAAAAD8/wUAAAAHAAAAAAD9/wUAAAAIAAAAAAAFAAQAAAAJAAEAAAAFAAUAAAAJAAIAAAAFAAcAAAACAAEAAAAFAAgAAAACAAIAAAAGAAcAAAABAAEAAAAGAAgAAAABAAIAAAAGAAUAAAABAAAAAAAGAAYAAAABAAEAAAADAAYAAAACAAEAAAAEAAYAAAAGAAEAAAAFAAYAAAAGAAEAAAADAAcAAAACAAEAAAAEAAcAAAAGAAEAAAADAAgAAAABAAIAAAAEAAgAAAACAAIAAAACAAgAAAAAAAIAAAADAAUAAAAGAAAAAAAEAAUAAAAIAAAAAAD5//v/AAAAAAAAAAD5//z/AAAAAAEAAAD5//3/AAAAAAEAAAD5//7/AAAAAAIAAAD6//v/AAAEAAAAAAD6//z/AAACAAEAAAD6//3/AAAGAAEAAAD6//7/AAABAAIAAAD7//v/AAAHAAAAAAD7//z/AAAGAAEAAAD7//3/AAAGAAEAAAD7//7/AAAJAAAAAAD7////AAAJAAEAAAD8//v/AAAGAAAAAAD8//z/AAAGAAEAAAD8//3/AAAGAAEAAAD8//7/AAABAAIAAAD9//v/AAAFAAAAAAD9//z/AAADAAEAAAD9//3/AAADAAEAAAD9//7/AAADAAIAAAAHAAgAAAABAAIAAAAIAAgAAAABAAIAAAAHAAcAAAACAAEAAAAIAAcAAAACAAEAAAAHAAYAAAACAAEAAAAIAAYAAAAGAAIAAAAHAAUAAAABAAAAAAAIAAUAAAABAAAAAAAJAAgAAAABAAIAAAAKAAgAAAACAAIAAAALAAgAAAADAAIAAAALAAcAAAAHAAIAADALAAYAAAAHAAIAADAKAAUAAAACAAAAAAALAAUAAAADAAAAAAAJAAUAAAABAAAAAAAJAAYAAAAFAAEAAAAKAAYAAAAGAAIAAAAJAAcAAAAGAAIAAAAKAAcAAAAGAAIAAAA=")
+tile_set = ExtResource("11_icaeq")
+
+[node name="Quests" type="Node" parent="Scene" unique_id=196576278]
+
+[node name="QuestStart" parent="Scene/Quests" unique_id=410918313 node_paths=PackedStringArray("quest") instance=ExtResource("12_tij5p")]
+position = Vector2(-143, -11)
+quest = NodePath("../FirstQuest")
+
+[node name="QuestUpdate" parent="Scene/Quests" unique_id=1331040239 node_paths=PackedStringArray("quest") instance=ExtResource("12_tij5p")]
+position = Vector2(11, 211)
+quest = NodePath("../FirstQuest")
+type = 2
+
+[node name="QuestFinish" parent="Scene/Quests" unique_id=55031404 node_paths=PackedStringArray("quest") instance=ExtResource("12_tij5p")]
+position = Vector2(32, 23)
+quest = NodePath("../FirstQuest")
+type = 3
+
+[node name="QuestFinish2" parent="Scene/Quests" unique_id=91382733 node_paths=PackedStringArray("quest") instance=ExtResource("12_tij5p")]
+position = Vector2(332, 174)
+quest = NodePath("../FirstQuest")
+type = 3
+
+[node name="FirstQuest" type="Node" parent="Scene/Quests" unique_id=887975092]
+script = ExtResource("13_2i1ty")
+quest_id = 1
+quest_name = "Explore"
+quest_objective = Array[String](["Expore the corridoors", "Find a way past the enemy"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Scene" unique_id=947343894]
+stream = ExtResource("14_g6mg3")
+volume_db = -1.0
+autoplay = true
+bus = &"Music"
+
+[node name="Score_UI" parent="." unique_id=2070936427 instance=ExtResource("15_lsu4l")]

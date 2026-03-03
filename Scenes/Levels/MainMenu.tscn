@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://xppmg5h4mvlw"]
+
+[ext_resource type="Script" uid="uid://cnngmihir6t82" path="res://Scripts/MainMenu.gd" id="1_mainmenu"]
+[ext_resource type="LabelSettings" uid="uid://1cnb4418rr7" path="res://Art/Fonts/pixelized_label_large.tres" id="2_largelabel"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="3_smalllabel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.15, 0.15, 0.28, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.8, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.08, 0.18, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MainMenu" type="Control" unique_id=2132859700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mainmenu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=110897935]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.06, 0.12, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=469494724]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 48.0
+offset_right = 164.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "Punctured Catacombs"
+label_settings = ExtResource("2_largelabel")
+horizontal_alignment = 1
+
+[node name="ButtonVBox" type="VBoxContainer" parent="." unique_id=1652570560]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -30.0
+offset_right = 69.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="StartButton" type="Button" parent="ButtonVBox" unique_id=9869213]
+custom_minimum_size = Vector2(140, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="ButtonVBox" unique_id=1697584506]
+custom_minimum_size = Vector2(140, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Setting"
+
+[node name="QuitButton" type="Button" parent="ButtonVBox" unique_id=6396161]
+custom_minimum_size = Vector2(140, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Exit"
+
+[node name="SettingsPanel" type="PanelContainer" parent="." unique_id=1782039867]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel" unique_id=734732739]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="SettingsPanel/MarginContainer" unique_id=1156793744]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SettingsTitleLabel" type="Label" parent="SettingsPanel/MarginContainer/VBox" unique_id=1107098729]
+layout_mode = 2
+text = "ตั้งค่าเสียง"
+label_settings = ExtResource("2_largelabel")
+horizontal_alignment = 1
+
+[node name="SFXRow" type="HBoxContainer" parent="SettingsPanel/MarginContainer/VBox" unique_id=1323792725]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SFXNameLabel" type="Label" parent="SettingsPanel/MarginContainer/VBox/SFXRow" unique_id=1778789618]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "เอฟเฟกต์"
+label_settings = ExtResource("3_smalllabel")
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBox/SFXRow" unique_id=1353943685]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXValueLabel" type="Label" parent="SettingsPanel/MarginContainer/VBox/SFXRow" unique_id=1429713637]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "100%"
+label_settings = ExtResource("3_smalllabel")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicRow" type="HBoxContainer" parent="SettingsPanel/MarginContainer/VBox" unique_id=562908604]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MusicNameLabel" type="Label" parent="SettingsPanel/MarginContainer/VBox/MusicRow" unique_id=1512818928]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "เพลง"
+label_settings = ExtResource("3_smalllabel")
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBox/MusicRow" unique_id=791142922]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicValueLabel" type="Label" parent="SettingsPanel/MarginContainer/VBox/MusicRow" unique_id=1063884294]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "100%"
+label_settings = ExtResource("3_smalllabel")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="SettingsPanel/MarginContainer/VBox" unique_id=1923114839]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="SettingsPanel/MarginContainer/VBox" unique_id=2094364285]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "ปิด"
+
+[connection signal="pressed" from="ButtonVBox/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonVBox/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonVBox/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="SettingsPanel/MarginContainer/VBox/SFXRow/SFXSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="value_changed" from="SettingsPanel/MarginContainer/VBox/MusicRow/MusicSlider" to="." method="_on_music_slider_changed"]
+[connection signal="pressed" from="SettingsPanel/MarginContainer/VBox/CloseButton" to="." method="_on_close_pressed"]
