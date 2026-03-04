@@ -13,7 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://48vtm5vekhaq" path="res://Scenes/QuestUpdate.tscn" id="12_tij5p"]
 [ext_resource type="Script" uid="uid://sdgifyh2ndq4" path="res://Scripts/QuestGeneral/Quest.gd" id="13_2i1ty"]
 [ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="14_g6mg3"]
+[ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="15_8asmv"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="15_lsu4l"]
+[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="16_klyq0"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/TutorialBanner.tscn" id="17_cxots"]
 
 [node name="Scene_Root" type="Node2D" unique_id=777561992]
 texture_filter = 1
@@ -153,3 +156,11 @@ autoplay = true
 bus = &"Music"
 
 [node name="Score_UI" parent="." unique_id=2070936427 instance=ExtResource("15_lsu4l")]
+
+[node name="LevelChallengeManager" type="Node" parent="." unique_id=1983635355]
+script = ExtResource("15_8asmv")
+level_name = "Lobby"
+
+[node name="TimerHUD" parent="." unique_id=366529592 instance=ExtResource("16_klyq0")]
+
+[node name="TutorialBanner" parent="." unique_id=592011665 instance=ExtResource("17_cxots")]

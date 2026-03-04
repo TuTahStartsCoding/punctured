@@ -1,17 +1,23 @@
+# res://Scripts/Reset.gd
+# แทนที่ไฟล์เดิม
+# DeathScreen / VictoryScreen ใช้ script นี้
+# เมื่อ player ตาย (ไม่ใช่หมดเวลา) → fail_level ถูกเรียกที่นี่
 extends Node
 
-#NOTE this class is attached to the death_screen and victory_screen scene that shows up when the player dies
-#it handles the logic for resetting the level or quitting the game
-
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Restart"):
 		restart()
 	if Input.is_action_just_pressed("Escape"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("Enter"):
-		GameManager.load_next_level(load("res://Scenes/Levels/MainFloor.tscn")) #Hardcoded because export gave issues
+		GameManager.reset_run()
+		get_tree().change_scene_to_file("res://Scenes/Levels/MainLobbyFloor.tscn")
 
-#When the player dies and wishes to reset, remove all of their money and reload the level
-func restart():
+func restart() -> void:
+	# บันทึก fail เฉพาะกรณีที่ timer ยังทำงานอยู่ (ตายก่อนหมดเวลา)
+	# ถ้าหมดเวลาแล้ว LevelChallengeManager จัดการไปแล้ว
+	if GameManager.timer_active:
+		GameManager.fail_level()
+	GameManager.stop_timer()
 	GameManager.reset_money()
 	GameManager.load_same_level()

@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://br28a8ypdxaac"]
+
+[ext_resource type="Script" uid="uid://bqeqdpum6t2ba" path="res://Scripts/UI/TimerHUD.gd" id="1_hud"]
+[ext_resource type="LabelSettings" uid="uid://1cnb4418rr7" path="res://Art/Fonts/pixelized_label_large.tres" id="2_large"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="3_small"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+bg_color = Color(0.04, 0.04, 0.1, 0.92)
+border_width_bottom = 2
+border_color = Color(0.3, 0.3, 0.7, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_timer"]
+bg_color = Color(0.08, 0.08, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coin"]
+bg_color = Color(0.15, 0.12, 0, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9, 0.75, 0.1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_total"]
+bg_color = Color(0.05, 0.15, 0.05, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.3, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="TimerHUD" type="CanvasLayer" unique_id=707349590]
+layer = 5
+script = ExtResource("1_hud")
+
+[node name="HUDRoot" type="Control" parent="." unique_id=1629594577]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="PanelContainer" parent="HUDRoot" unique_id=1001875628]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+
+[node name="BarHBox" type="HBoxContainer" parent="HUDRoot/TopBar" unique_id=1555484443]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BarMargin" type="MarginContainer" parent="HUDRoot/TopBar/BarHBox" unique_id=1281980505]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="InnerHBox" type="HBoxContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin" unique_id=1478659339]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="LevelLabel" type="Label" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox" unique_id=1888357062]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 1"
+label_settings = ExtResource("3_small")
+vertical_alignment = 1
+
+[node name="TimerPanel" type="PanelContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox" unique_id=1037403067]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_timer")
+
+[node name="TimerMargin" type="MarginContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox/TimerPanel" unique_id=609054496]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 2
+
+[node name="TimerLabel" type="Label" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox/TimerPanel/TimerMargin" unique_id=1119257218]
+layout_mode = 2
+text = "02:00"
+label_settings = ExtResource("2_large")
+horizontal_alignment = 1
+
+[node name="CoinPanel" type="PanelContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox" unique_id=763449857]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_coin")
+
+[node name="CoinMargin" type="MarginContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox/CoinPanel" unique_id=842997277]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="CoinLabel" type="Label" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox/CoinPanel/CoinMargin" unique_id=3164185]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_small")
+vertical_alignment = 1
+
+[node name="TotalPanel" type="PanelContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox" unique_id=185133452]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_total")
+
+[node name="TotalMargin" type="MarginContainer" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox/TotalPanel" unique_id=1941512397]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="TotalLabel" type="Label" parent="HUDRoot/TopBar/BarHBox/BarMargin/InnerHBox/TotalPanel/TotalMargin" unique_id=1828443950]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_small")
+vertical_alignment = 1

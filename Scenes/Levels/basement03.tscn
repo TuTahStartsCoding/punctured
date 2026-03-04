@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ceoo6gamb4olk" path="res://Scenes/Interactables/Area_Blocker.tscn" id="9_u0rgd"]
 [ext_resource type="PackedScene" uid="uid://bvt7e871e6jeg" path="res://Scenes/NPC's/Enemy/Enemy.tscn" id="10_gu0nx"]
 [ext_resource type="PackedScene" uid="uid://bblpsy4fvi76f" path="res://Scenes/Interactables/Coin.tscn" id="11_n0w4t"]
+[ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="11_w2spu"]
+[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="12_2myxf"]
 [ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="12_xkxg3"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="13_xpbls"]
 
@@ -411,3 +413,10 @@ position = Vector2(3523, 558.00006)
 position = Vector2(-90, -18)
 
 [node name="Score_tracker_layer" parent="." unique_id=2014158599 instance=ExtResource("13_xpbls")]
+
+[node name="LevelChallengeManager" type="Node" parent="." unique_id=2046934093]
+script = ExtResource("11_w2spu")
+level_name = "Basement 3"
+time_limit = 100.0
+
+[node name="TimerHUD" parent="." unique_id=663437465 instance=ExtResource("12_2myxf")]
