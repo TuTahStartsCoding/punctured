@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ci60w53hdbiqe"
-path="res://.godot/imported/m3x6.ttf-f948d1da328d418d359093c1fa3b080b.fontdata"
+uid="uid://cwtcovmff66yj"
+path="res://.godot/imported/NotoSansThai-Regular.ttf-1d309ba01ce3c2fa7cdc394dd7491f5d.fontdata"
 
 [deps]
 
-source_file="res://Art/Fonts/m3x6.ttf"
-dest_files=["res://.godot/imported/m3x6.ttf-f948d1da328d418d359093c1fa3b080b.fontdata"]
+source_file="res://Art/Fonts/NotoSansThai-Regular.ttf"
+dest_files=["res://.godot/imported/NotoSansThai-Regular.ttf-1d309ba01ce3c2fa7cdc394dd7491f5d.fontdata"]
 
 [params]
 
@@ -23,20 +23,14 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("uid://cwtcovmff66yj", "res://Art/Fonts/NotoSansThai-Regular.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0),
-&"variation_embolden": 0.0
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

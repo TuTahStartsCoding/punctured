@@ -10,7 +10,9 @@
 [ext_resource type="TileSet" uid="uid://b3n0bklwwny1b" path="res://Art/TileMap.tres" id="9_g0orc"]
 [ext_resource type="Script" uid="uid://sdgifyh2ndq4" path="res://Scripts/QuestGeneral/Quest.gd" id="11_fysk4"]
 [ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="12_cxsmh"]
+[ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="12_vkbau"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="13_jwitt"]
+[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_pwqo5"]
 
 [node name="Scene_Root" type="Node2D" unique_id=777561992]
 texture_filter = 1
@@ -390,3 +392,10 @@ autoplay = true
 bus = &"Music"
 
 [node name="Score_UI" parent="." unique_id=2070936427 instance=ExtResource("13_jwitt")]
+
+[node name="LevelChallengeManager" type="Node" parent="." unique_id=2139301344]
+script = ExtResource("12_vkbau")
+level_name = "Floor 2"
+time_limit = 90.0
+
+[node name="TimerHUD" parent="." unique_id=1589686394 instance=ExtResource("13_pwqo5")]

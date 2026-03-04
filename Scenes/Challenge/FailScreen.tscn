@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://d348xiebs0w8r"]
+
+[ext_resource type="Script" uid="uid://drt74lrlxsy0q" path="res://Scripts/UI/FailScreen.gd" id="1_fail"]
+[ext_resource type="LabelSettings" uid="uid://1cnb4418rr7" path="res://Art/Fonts/pixelized_label_large.tres" id="2_large"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="3_small"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.06, 0, 0, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9, 0.1, 0.1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="FailScreen" type="CanvasLayer" unique_id=1195063543]
+process_mode = 3
+layer = 10
+script = ExtResource("1_fail")
+
+[node name="BG" type="ColorRect" parent="." unique_id=153068277]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="Control" type="Control" parent="." unique_id=2008432750]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Control" unique_id=457762921]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -110.0
+offset_right = 160.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Control/Panel" unique_id=648036466]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Control/Panel/Margin" unique_id=473135833]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="Control/Panel/Margin/VBox" unique_id=2137939120]
+modulate = Color(1, 0.3, 0.3, 1)
+layout_mode = 2
+text = "หมดเวลา!"
+label_settings = ExtResource("2_large")
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Control/Panel/Margin/VBox" unique_id=1970407153]
+layout_mode = 2
+text = "เวลาที่ใช้: --:--"
+label_settings = ExtResource("3_small")
+horizontal_alignment = 1
+
+[node name="CoinLabel" type="Label" parent="Control/Panel/Margin/VBox" unique_id=906289336]
+layout_mode = 2
+text = "Coin: 0"
+label_settings = ExtResource("3_small")
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Control/Panel/Margin/VBox" unique_id=2033757259]
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="Control/Panel/Margin/VBox" unique_id=675674480]
+modulate = Color(0.8, 0.8, 0.8, 1)
+layout_mode = 2
+text = "R = ลองใหม่   |   E = เมนูหลัก   |   Esc = ออก"
+label_settings = ExtResource("3_small")
+horizontal_alignment = 1

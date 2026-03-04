@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="7_hbxrs"]
 [ext_resource type="AudioStream" uid="uid://b1lr5ey8e6pu3" path="res://Art/Audio/BasementOgg.ogg" id="8_u2hwu"]
 [ext_resource type="PackedScene" uid="uid://b4l1gom0wsk8p" path="res://Scenes/Interactables/area_exit.tscn" id="10_eko0k"]
+[ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="11_4rd78"]
 [ext_resource type="PackedScene" uid="uid://ceoo6gamb4olk" path="res://Scenes/Interactables/Area_Blocker.tscn" id="11_xe2ch"]
+[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="12_i5osu"]
 
 [node name="Basement01" type="Node2D" unique_id=785364849]
 
@@ -131,3 +133,10 @@ position = Vector2(467.24265, 155.82843)
 position = Vector2(-90, -18)
 
 [node name="Score_tracker_layer" parent="." unique_id=2014158599 instance=ExtResource("7_hbxrs")]
+
+[node name="LevelChallengeManager" type="Node" parent="." unique_id=131437329]
+script = ExtResource("11_4rd78")
+level_name = "Basement 1"
+time_limit = 80.0
+
+[node name="TimerHUD" parent="." unique_id=1261871130 instance=ExtResource("12_i5osu")]
