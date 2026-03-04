@@ -30,6 +30,7 @@ buses/default_bus_layout="uid://cxl7a0w0oyj8j"
 
 GameManager="*res://Scripts/Managers/GameManager.gd"
 AudioManager="*res://Scripts/Managers/AudioManager.gd"
+PauseMenu="*res://Scenes/UI/PauseMenu.tscn"
 
 [display]
 
