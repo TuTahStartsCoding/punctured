@@ -14,8 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Topdown Starter"
-config/description="This 2D Pixelart, TopDown action Starter Project include all the basics you need to get started creating a game."
+config/name="Punctured_Catacombs"
 config/version="1.5"
 run/main_scene="res://Scenes/Levels/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
@@ -36,6 +35,7 @@ AudioManager="*res://Scripts/Managers/AudioManager.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"

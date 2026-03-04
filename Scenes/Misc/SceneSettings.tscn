@@ -13,4 +13,4 @@ glow_bloom = 0.5
 environment = SubResource("Environment_8bd8l")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1893508303]
-color = Color(0.7666196, 0.76661956, 0.76661956, 1)
+color = Color(0, 0, 0, 1)
