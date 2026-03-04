@@ -1,16 +1,11 @@
 # res://Scripts/UI/ScoreboardScreen.gd
-# ══════════════════════════════════════════════════════════════
-#  แนบกับ Scenes/Challenge/ScoreboardScreen.tscn
-#  แสดง: สถิติแต่ละด่าน + สรุปรวม
-# ══════════════════════════════════════════════════════════════
 extends Control
 
-@onready var title_label: Label            = $BG/HeaderPanel/HeaderMargin/TitleLabel
+@onready var title_label:    Label         = $BG/HeaderPanel/HeaderMargin/TitleLabel
 @onready var rows_container: VBoxContainer = $BG/ScrollContainer/RowsVBox
-@onready var summary_label: Label          = $BG/SummaryPanel/SummaryMargin/SummaryLabel
-@onready var hint_label: Label             = $BG/HintLabel
+@onready var summary_label:  Label         = $BG/SummaryPanel/SummaryMargin/SummaryLabel
+@onready var hint_label:     Label         = $BG/HintLabel
 
-# Preload row scene
 const ROW_SCENE = preload("res://Scenes/Challenge/ScoreRow.tscn")
 
 func _ready() -> void:
@@ -20,21 +15,21 @@ func _ready() -> void:
 func _build_table() -> void:
 	for record in GameManager.level_records:
 		var row = ROW_SCENE.instantiate()
-		row.setup(record)
 		rows_container.add_child(row)
+		row.setup(record)
 
 func _build_summary() -> void:
-	var completed = GameManager.get_completed_count()
-	var total     = GameManager.level_records.size()
-	var total_t   = GameManager.get_total_time()
-	var mins = int(total_t) / 60
-	var secs = int(total_t) % 60
-	var coins = GameManager.total_coins
+	var completed: int  = GameManager.get_completed_count()
+	var total: int      = GameManager.level_records.size()
+	var total_t: float  = GameManager.get_total_time()
+	var mins: int       = int(total_t) / 60
+	var secs: int       = int(total_t) % 60
+	var coins: int      = GameManager.total_coins
 
 	summary_label.text = (
-		"ผ่านด่าน:  %d / %d\n" % [completed, total] +
+		"ผ่านด่าน:  %d / %d\n"  % [completed, total] +
 		"เวลารวม:   %02d:%02d\n" % [mins, secs] +
-		"Coin รวม:  %d 🪙" % coins
+		"Coin รวม:  %d"          % coins
 	)
 
 func _process(_delta: float) -> void:

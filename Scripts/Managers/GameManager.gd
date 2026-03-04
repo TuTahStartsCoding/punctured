@@ -11,7 +11,6 @@ extends Node
 signal timer_tick(remaining: float)   # เรียกทุก frame
 signal time_up()                       # หมดเวลา → แพ้
 signal level_complete(stats: Dictionary)  # ผ่านด่านสำเร็จ
-
 # ─────────────────────────────────────────────
 #  SINGLE-PLAYER CORE (ระบบเดิม)
 # ─────────────────────────────────────────────
@@ -108,6 +107,7 @@ func fail_level() -> void:
 		"completed":  false
 	}
 	level_records.append(stats)
+	
 
 # ═══════════════════════════════════════════════
 #  SCOREBOARD HELPERS
