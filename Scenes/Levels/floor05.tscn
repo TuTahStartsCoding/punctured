@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://sdgifyh2ndq4" path="res://Scripts/QuestGeneral/Quest.gd" id="11_6w52w"]
 [ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="12_4bgrc"]
 [ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="12_5m1tq"]
-[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_li5ku"]
+[ext_resource type="PackedScene" uid="uid://2doc7nseu14p" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_li5ku"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="13_mdb3a"]
 
 [node name="Scene_Root" type="Node2D" unique_id=777561992]

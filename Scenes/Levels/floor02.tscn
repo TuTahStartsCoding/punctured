@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="12_cxsmh"]
 [ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="12_vkbau"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="13_jwitt"]
-[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_pwqo5"]
+[ext_resource type="PackedScene" uid="uid://2doc7nseu14p" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_pwqo5"]
 
 [node name="Scene_Root" type="Node2D" unique_id=777561992]
 texture_filter = 1
@@ -368,7 +368,7 @@ next_scene_path = "res://Scenes/Levels/floor03.tscn"
 
 [node name="AreaExit_Down" parent="Scene" unique_id=1657384817 instance=ExtResource("7_003r8")]
 position = Vector2(336, 170)
-next_scene_path = "res://Scenes/Levels/Basement02.tscn"
+next_scene_path = "res://Scenes/Levels/basement02.tscn"
 
 [node name="TileMap" type="TileMapLayer" parent="Scene" unique_id=255868594]
 z_index = -1

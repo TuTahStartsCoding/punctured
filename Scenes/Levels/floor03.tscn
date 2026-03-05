@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="12_cxsmh"]
 [ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="12_ec8lc"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="13_jwitt"]
-[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_x2adb"]
+[ext_resource type="PackedScene" uid="uid://2doc7nseu14p" path="res://Scenes/Challenge/TimerHUD.tscn" id="13_x2adb"]
 
 [node name="Scene_Root" type="Node2D" unique_id=877561992]
 texture_filter = 1
@@ -23,35 +23,27 @@ position = Vector2(-85, -117)
 [node name="NPCs" type="Node" parent="." unique_id=334943041]
 
 [node name="Enemy" parent="NPCs" unique_id=335690390 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(67, 71)
 
 [node name="Enemy2" parent="NPCs" unique_id=1085571059 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(-171, 71)
 
 [node name="Enemy3" parent="NPCs" unique_id=1689834221 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(253, 229)
 
 [node name="Enemy4" parent="NPCs" unique_id=-2051018388 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(-445, 642)
 
 [node name="Enemy5" parent="NPCs" unique_id=986831654 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(-1046, -212)
 
 [node name="Enemy6" parent="NPCs" unique_id=413282909 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(185, 689)
 
 [node name="Enemy7" parent="NPCs" unique_id=542209116 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(279, -313)
 
 [node name="Enemy8" parent="NPCs" unique_id=1435449064 instance=ExtResource("2_og0ie")]
-visible = false
 position = Vector2(-690, 184)
 
 [node name="Pickups" type="Node" parent="." unique_id=311693519]
@@ -376,7 +368,7 @@ next_scene_path = "res://Scenes/Levels/floor04.tscn"
 
 [node name="AreaExit_Down" parent="Scene" unique_id=1757384817 instance=ExtResource("7_003r8")]
 position = Vector2(336, 170)
-next_scene_path = "res://Scenes/Levels/Basement04.tscn"
+next_scene_path = "res://Scenes/Levels/basement04.tscn"
 
 [node name="TileMap" type="TileMapLayer" parent="Scene" unique_id=355868594]
 z_index = -1

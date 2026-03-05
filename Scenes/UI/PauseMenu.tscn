@@ -109,7 +109,7 @@ theme_override_constants/separation = 14
 
 [node name="TitleLabel" type="Label" parent="Control/PausePanel/Margin/VBox" unique_id=1679632379]
 layout_mode = 2
-text = "recess"
+text = "RECESS"
 label_settings = ExtResource("2_largelabel")
 horizontal_alignment = 1
 

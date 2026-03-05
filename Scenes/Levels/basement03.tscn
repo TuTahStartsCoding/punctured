@@ -65,7 +65,7 @@ position = Vector2(2893, 771)
 
 [node name="AreaExit_Down" parent="Scene" unique_id=1371584530 instance=ExtResource("7_ww412")]
 position = Vector2(2896, 779)
-next_scene_path = "res://Scenes/Levels/Basement04.tscn"
+next_scene_path = "res://Scenes/Levels/basement04.tscn"
 
 [node name="AreaBlocker2" parent="Scene" unique_id=1613460830 instance=ExtResource("9_u0rgd")]
 position = Vector2(2575, 196)

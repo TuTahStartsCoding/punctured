@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="15_8asmv"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="15_lsu4l"]
 [ext_resource type="PackedScene" uid="uid://2doc7nseu14p" path="res://Scenes/Challenge/TimerHUD.tscn" id="16_klyq0"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/TutorialBanner.tscn" id="17_cxots"]
+[ext_resource type="PackedScene" uid="uid://cuaijt5q86p05" path="res://Scenes/UI/TutorialBanner.tscn" id="17_cxots"]
 
 [node name="Scene_Root" type="Node2D" unique_id=777561992]
 texture_filter = 1

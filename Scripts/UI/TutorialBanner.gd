@@ -4,94 +4,47 @@ extends CanvasLayer
 @onready var banner_panel = $BannerPanel
 @onready var banner_label: Label = $BannerPanel/Margin/Label
 
+# 9 tips × ~2.2 วิ = ~20 วิรวม
 const TIPS: Array[String] = [
-	"ยินดีต้อนรับ!\nกด W A S D เพื่อเดิน",              # 0 - แสดงทันที
-	"กด SPACE เพื่อ Dash พุ่งหนีศัตรู",                  # 1 - หลังเดินครั้งแรก
-	"คลิกซ้าย / กด J : Punch\nคลิกขวา / กด K : Kick",   # 2 - หลังเดินครั้งแรก (queue)
-	"กด ESC เพื่อหยุดเกมชั่วคราว",                        # 3 - หลังเดินครั้งแรก (queue)
-	"เก็บ Coin เพิ่มเลือดและคะแนน",                       # 4 - หลังเก็บ coin ครั้งแรก
-	"มีเวลาจำกัดในแต่ละด่าน\nผ่านให้ทันก่อนหมดเวลา",      # 5 - หลัง 15 วิ
-	"หาประตู Exit เพื่อไปด่านถัดไป\nกด E ที่ประตูเพื่อผ่าน", # 6 - หลัง 30 วิ
-	"คะแนนดูได้ที่ Scoreboard ตอนจบเกม"                  # 7 - หลัง 60 วิ
+	"Punctured Catacombs\nยินดีต้อนรับ!",
+	"เป้าหมาย: ผ่านทุกด่านให้ทันเวลา\nเก็บ Coin และเอาชีวิตรอด!",
+	"กด W A S D เพื่อเดิน",
+	"กด SPACE พร้อม W, A, S, D เพื่อ Dash",
+	"คลิกซ้าย / J : Punch\nคลิกขวา / K : Kick",
+	"กด ESC หยุดเกมชั่วคราว",
+	"เก็บ Coin เพิ่มเลือดและคะแนน",
+	"หาประตู Exit แล้วกด E เพื่อผ่านด่าน",
+	"มีเวลาจำกัด — ผ่านให้ทันก่อนหมดเวลา!"
 ]
 
-var showing: bool = false
-var auto_shown: Array[bool] = []
-var _tip_queue: Array[int] = []
+# เวลาแต่ละ tip: fade_in=0.3 + show=1.5 + fade_out=0.4 = 2.2 วิ × 9 = 19.8 วิ
+const SHOW_DURATION  := 2.5
+const FADE_IN_TIME   := 0.3
+const FADE_OUT_TIME  := 0.4
 
-var _has_moved: bool = false
-var _has_attacked: bool = false
-var _has_coin: bool = false
+var showing: bool = false
 
 func _ready() -> void:
 	banner_panel.visible = false
-	auto_shown.resize(TIPS.size())
-	auto_shown.fill(false)
-	await get_tree().create_timer(1.0).timeout
-	_queue_tip(0)
+	await get_tree().create_timer(0.5).timeout
+	_run_all_tips()
 
-func _process(_delta: float) -> void:
-	if not _has_moved and Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown").length() > 0.1:
-		_has_moved = true
-		_queue_tip(1)
-		_queue_tip(2)
-		_queue_tip(3)
+func _run_all_tips() -> void:
+	for i in TIPS.size():
+		await _show_tip(TIPS[i])
 
-	if not _has_attacked and (Input.is_action_just_pressed("Punch") or Input.is_action_just_pressed("Kick")):
-		_has_attacked = true
-		_queue_tip(2)
-
-	if not _has_coin and GameManager.current_level_coins > 0:
-		_has_coin = true
-		_queue_tip(4)
-
-	if not auto_shown[5] and GameManager.timer_active and \
-		GameManager.time_limit - GameManager.time_remaining >= 15.0:
-		_queue_tip(5)
-
-	if not auto_shown[6] and GameManager.timer_active and \
-		GameManager.time_limit - GameManager.time_remaining >= 30.0:
-		_queue_tip(6)
-
-	if not auto_shown[7] and GameManager.timer_active and \
-		GameManager.time_limit - GameManager.time_remaining >= 60.0:
-		_queue_tip(7)
-
-	if not showing and _tip_queue.size() > 0:
-		var next = _tip_queue.pop_front()
-		_show_tip_now(next)
-
-func _queue_tip(index: int) -> void:
-	if index < TIPS.size() and not auto_shown[index] and not (index in _tip_queue):
-		_tip_queue.append(index)
-
-func _show_tip_now(index: int) -> void:
-	if index >= TIPS.size() or auto_shown[index]:
-		return
-	auto_shown[index] = true
-	showing = true
-	banner_label.text = TIPS[index]
-	banner_panel.visible = true
-	banner_panel.modulate.a = 0.0
-	var tween = create_tween()
-	tween.tween_property(banner_panel, "modulate:a", 1.0, 0.3)
-	tween.tween_interval(3.5)
-	tween.tween_property(banner_panel, "modulate:a", 0.0, 0.4)
-	await tween.finished
-	banner_panel.visible = false
-	showing = false
-
-func show_custom(text: String) -> void:
-	if showing:
-		return
+func _show_tip(text: String) -> void:
 	showing = true
 	banner_label.text = text
 	banner_panel.visible = true
 	banner_panel.modulate.a = 0.0
 	var tween = create_tween()
-	tween.tween_property(banner_panel, "modulate:a", 1.0, 0.3)
-	tween.tween_interval(4.0)
-	tween.tween_property(banner_panel, "modulate:a", 0.0, 0.4)
+	tween.tween_property(banner_panel, "modulate:a", 1.0, FADE_IN_TIME)
+	tween.tween_interval(SHOW_DURATION)
+	tween.tween_property(banner_panel, "modulate:a", 0.0, FADE_OUT_TIME)
 	await tween.finished
 	banner_panel.visible = false
 	showing = false
+
+func show_custom(text: String) -> void:
+	await _show_tip(text)

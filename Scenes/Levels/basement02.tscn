@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bblpsy4fvi76f" path="res://Scenes/Interactables/Coin.tscn" id="10_vbhoq"]
 [ext_resource type="Script" uid="uid://bu30e8whcp5b8" path="res://Scripts/Challenge/LevelChallengeManager.gd" id="11_ivtto"]
 [ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="11_lvfh7"]
-[ext_resource type="PackedScene" path="res://Scenes/Challenge/TimerHUD.tscn" id="12_304aw"]
+[ext_resource type="PackedScene" uid="uid://2doc7nseu14p" path="res://Scenes/Challenge/TimerHUD.tscn" id="12_304aw"]
 [ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="12_qnckb"]
 
 [node name="Basement02" type="Node2D" unique_id=785364849]
@@ -65,7 +65,7 @@ position = Vector2(1229, -287)
 
 [node name="AreaExit_Down" parent="Scene" unique_id=1371584530 instance=ExtResource("6_obj47")]
 position = Vector2(1232, -279)
-next_scene_path = "res://Scenes/Levels/Basement03.tscn"
+next_scene_path = "res://Scenes/Levels/basement03.tscn"
 
 [node name="AreaBlocker2" parent="Scene" unique_id=1613460830 instance=ExtResource("5_vwjck")]
 position = Vector2(1231, -989)

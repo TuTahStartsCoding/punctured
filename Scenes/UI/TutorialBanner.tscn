@@ -1,28 +1,26 @@
-[gd_scene format=3 uid="uid://tutorial_banner_v2"]
+[gd_scene format=3 uid="uid://cuaijt5q86p05"]
 
-[ext_resource type="Script" path="res://Scripts/UI/TutorialBanner.gd" id="1_banner"]
+[ext_resource type="Script" uid="uid://bvbnxli13u1px" path="res://Scripts/UI/TutorialBanner.gd" id="1_banner"]
 [ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="2_small"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bubble"]
-bg_color = Color(0.05, 0.10, 0.25, 0.95)
+bg_color = Color(0.05, 0.1, 0.25, 0.95)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.4, 0.7, 1.0, 1)
+border_color = Color(0.4, 0.7, 1, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="TutorialBanner" type="CanvasLayer"]
+[node name="TutorialBanner" type="CanvasLayer" unique_id=1463382443]
 layer = 6
 script = ExtResource("1_banner")
 
-; ── วางตรงกลาง ด้านล่างจอ ──────────────────────────────
-[node name="BannerPanel" type="PanelContainer" parent="."]
+[node name="BannerPanel" type="PanelContainer" parent="." unique_id=554192054]
 visible = false
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -36,14 +34,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bubble")
 
-[node name="Margin" type="MarginContainer" parent="BannerPanel"]
+[node name="Margin" type="MarginContainer" parent="BannerPanel" unique_id=2070771291]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="BannerPanel/Margin"]
+[node name="Label" type="Label" parent="BannerPanel/Margin" unique_id=307175981]
 layout_mode = 2
 text = "Tip goes here"
 label_settings = ExtResource("2_small")
